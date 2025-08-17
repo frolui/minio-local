@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  minio:
+    image: quay.io/minio/minio:latest
+    container_name: minio
+    command: server /data --console-address ":9001"
+    # Expose ports for MinIO, S3 API and Web console, use localhost to restrict access
+    ports:
+      - "127.0.0.1:9025:9000"   # S3 API
+      - "127.0.0.1:9026:9001"   # Web console
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin123
+      MINIO_REGION: us-east-1
+    volumes:
+      - ./minio-data:/data
+    restart: unless-stopped
+    networks: [devnet]
+
+networks:
+  devnet:
+    driver: bridge
