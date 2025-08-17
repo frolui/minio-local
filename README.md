@@ -22,5 +22,6 @@ aws configure --profile local-minio
 <!-- Default output format: json -->
 ```
 
-### [how to connect from python](connect.py)
+### How to connect from python
+[example](connect.py)
 
