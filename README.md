@@ -3,6 +3,7 @@ Small repo with local minio cluster setup instruction
 
 ### Ports
 127.0.0.1:9025 - S3 API
+
 127.0.0.1:9026 - Web Console
 
 1. run [install.sh](install.sh)
